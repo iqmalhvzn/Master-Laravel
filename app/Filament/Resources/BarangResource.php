@@ -53,6 +53,7 @@ class BarangResource extends Resource
                     ->required()
                     ->numeric(),
                 Forms\Components\FileUpload::make('gambar')
+                    ->disk('public')
                     ->image()
                     ->directory('gambar-barang'),
             ]);
@@ -74,8 +75,7 @@ class BarangResource extends Resource
                 Tables\Columns\TextColumn::make('stok')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('gambar')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('gambar'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
